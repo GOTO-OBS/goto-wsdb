@@ -28,9 +28,9 @@ before_script: # configure a headless display to test plot generation
   #- "export DISPLAY=:99.0"
   #- "sh -e /etc/init.d/xvfb start"
   #- sleep 3 # give xvfb some time to start
-  - sudo sh install.sh
+  #- sudo sh install.sh
   #- apt-get install postgresql postgresql-contrib
-  - apt-get install postgresql-server-dev-all postgresql-common
+  - apt-get install postgresql postgresql-server-dev-all postgresql-common
   - git clone https://github.com/segasai/q3c.git
   - cd q3c/
   - make
@@ -43,11 +43,13 @@ before_script: # configure a headless display to test plot generation
   - psql -c 'ALTER DATABASE wsdb OWNER TO goto'
   - psql -d wsdb -c 'create extension q3c'
   - exit
+  - which psql
 
 script:
   #- nosetests --with-coverage --cover-package=snob 
   #- if [[ $TRAVIS_PYTHON_VERSION == 2.7 ]]; then source .ci/travis.sh; fi
   - ls -lh
+  - which psql
 
 #after_success:
 #  - coveralls
