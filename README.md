@@ -1,14 +1,12 @@
-GOTO OBSERVATORY WSDB
+GOTO Observatory WSDB
 =====================
 
-A local WSDB (a. la. Koposov) for the GOTO Observatory.
+[![Build Status](https://travis-ci.org/andycasey/goto-wsdb.svg?branch=master)](https://travis-ci.org/andycasey/goto-wsdb)
+
+A World Sky Database (WSDB) for the [https://goto-observatory.org/](GOTO Observatory).
 
 
-Setup script to do the following:
+Acknowledgements
+----------------
 
-1. Download and install postgresql on a ubuntu-like server
-2. Set up users and database
-3. Optionally download a data dump from somewhere, then create indices, etc.
-4. Install python package to connect to database and do cone searches etc.
-
-
+- Sergey Koposov (CMU)
