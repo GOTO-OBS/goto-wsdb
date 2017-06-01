@@ -12,7 +12,7 @@ services:
 
 before_script: 
   - sudo apt-get install -y postgresql-server-dev-all 
-  #- export PATH="/usr/lib/postgresql/9.1
+  - export PATH="/usr/lib/postgresql/9.1/bin:$PATH"
   - git clone https://github.com/segasai/q3c.git
   - which psql
   - pg_config --version
