@@ -31,7 +31,8 @@ before_script: # configure a headless display to test plot generation
   #- sudo sh install.sh
   #- apt-get install postgresql postgresql-contrib
   - sudo apt-get update
-  - sudo apt-get install postgresql postgresql-server-dev-all
+  - sudo apt-get install postgresql
+  - sudo apt-get install postgresql-server-dev-all
   - git clone https://github.com/segasai/q3c.git
   - cd q3c/
   - make
