@@ -56,7 +56,8 @@ before_install:
 
 install:
   - ls -lh
-  - pip install .
+  #pip install .
+  - python setup.py install
 
 script:
   - nosetests #--with-coverage --cover-package=wsdb 
