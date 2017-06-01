@@ -55,6 +55,7 @@ before_install:
   - export PATH=/home/travis/miniconda2/bin:$PATH
 
 install:
+  - ls -lh
   - pip install .
 
 script:
