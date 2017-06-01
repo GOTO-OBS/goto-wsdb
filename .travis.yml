@@ -1,28 +1,8 @@
-# Remember to go to Travis settings and set to only build if .travis.yml is present
-
 sudo: true
 language: python
 
 python:
   - 2.7
-
-before_install:
-  #- wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
-  #- chmod +x miniconda.sh
-  #- ./miniconda.sh -b
-  #- export PATH=/home/travis/miniconda2/bin:$PATH
-  #- conda update --yes conda
-  # The next couple lines fix a crash with multiprocessing on Travis and are not
-  # specific to using Miniconda.
-  # (Note: I have commented these out because this repository is not using 
-  #        multiprocessing in testing at the moment and if we can get away
-  #        without using sudo then we can use Travis containers, which are
-  #        way betterrer)
-  #- sudo rm -rf /dev/shm
-  #- sudo ln -s /run/shm /dev/shm
-
-install: 
-  #- conda install --yes python=$TRAVIS_PYTHON_VERSION nose six coverage 
 
 addons:
   postgresql: "9.1"
@@ -30,28 +10,21 @@ addons:
 services:
   - postgresql
 
-before_script: # configure a headless display to test plot generation
-  #- "export DISPLAY=:99.0"
-  #- "sh -e /etc/init.d/xvfb start"
-  #- sleep 3 # give xvfb some time to start
-  #- sudo sh install.sh
-  #- apt-get install postgresql postgresql-contrib
+before_script: 
   - sudo apt-get install -y postgresql-server-dev-all 
   - git clone https://github.com/segasai/q3c.git
   - cd q3c/
   - make
   - sudo make install
   - cd ../
-  - runuser -l postgres -c 'createuser goto'
-  - runuser -l postgres -c 'createdb wsdb'
-  - psql -c "ALTER USER goto WITH PASSWORD '$GOTO_PASSWORD'" -U postgres
-  - psql -c 'ALTER DATABASE wsdb OWNER TO goto' -U postgres
-  - psql -d wsdb -c 'create extension q3c' -U postgres
+  - psql -U postgres -c 'CREATE USER goto'
+  - psql -U postgres -c 'CREATE DATABASE wsdb'
+  - psql -U postgres -c "ALTER USER goto WITH PASSWORD '$GOTO_PASSWORD'"
+  - psql -U postgres -c 'ALTER DATABASE wsdb OWNER TO goto'
+  - psql -U postgres -d wsdb -c 'create extension q3c'
   - which psql
 
 script:
-  #- nosetests --with-coverage --cover-package=snob 
-  #- if [[ $TRAVIS_PYTHON_VERSION == 2.7 ]]; then source .ci/travis.sh; fi
   - ls -lh
   - which psql
 
