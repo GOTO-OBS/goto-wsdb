@@ -30,7 +30,7 @@ before_script: # configure a headless display to test plot generation
   #- sleep 3 # give xvfb some time to start
   #- sudo sh install.sh
   #- apt-get install postgresql postgresql-contrib
-  - apt-get install postgresql postgresql-server-dev-all postgresql-common
+  - sudo apt-get install postgresql postgresql-server-dev-all postgresql-common
   - git clone https://github.com/segasai/q3c.git
   - cd q3c/
   - make
