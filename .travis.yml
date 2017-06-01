@@ -40,7 +40,7 @@ before_script: # configure a headless display to test plot generation
   - git clone https://github.com/segasai/q3c.git
   - cd q3c/
   - make
-  - make install
+  - sudo make install
   - cd ../
   - runuser -l postgres -c 'createuser goto'
   - runuser -l postgres -c 'createdb wsdb'
