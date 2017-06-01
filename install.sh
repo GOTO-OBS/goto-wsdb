@@ -1,17 +1,17 @@
-apt-get update
-apt-get install postgresql postgresql-contrib
-apt-get install postgresql-server-dev-all postgresql-common
-# Change the default permissions to 'trust' 
-# Re-start the postgres server
+sudo apt-get update
+sudo apt-get install postgresql postgresql-server-dev-all
 git clone https://github.com/segasai/q3c.git
 cd q3c/
 make
-make install
+sudo make install
 cd ../
-sudo -i -u postgres
-createuser goto
-createdb wsdb
-psql -c "ALTER USER goto WITH PASSWORD '$GOTO_PASSWORD'"
-psql -c 'ALTER DATABASE wsdb OWNER TO goto'
-psql -d wsdb -c 'create extension q3c'
-exit
+sudo chmod 777 /etc/postgresql/$PGVERSION/main/pg_hba.conf
+sudo echo "local   all         postgres                          trust" > /etc/postgresql/$PGVERSION/main/pg_hba.conf
+sudo echo "local   all         all                               trust" >> /etc/postgresql/$PGVERSION/main/pg_hba.conf
+sudo echo "host    all         all         127.0.0.1/32          trust" >> /etc/postgresql/$PGVERSION/main/pg_hba.conf
+sudo echo "host    all         all         ::1/128               trust" >> /etc/postgresql/$PGVERSION/main/pg_hba.conf
+psql -U postgres -c "CREATE USER goto"
+psql -U postgres -c "CREATE DATABASE wsdb"
+psql -U postgres -c "ALTER USER goto WITH PASSWORD '$GOTO_PASSWORD'"
+psql -U postgres -c "ALTER DATABASE wsdb OWNER TO goto"
+psql -U postgres -d wsdb -c "CREATE EXTENSION q3c"
