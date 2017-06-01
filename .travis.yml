@@ -1,6 +1,6 @@
 # Remember to go to Travis settings and set to only build if .travis.yml is present
 
-sudo: false
+sudo: true
 language: python
 
 python:
@@ -24,6 +24,9 @@ before_install:
 install: 
   #- conda install --yes python=$TRAVIS_PYTHON_VERSION nose six coverage 
 
+addons:
+  postgresql: "9.1"
+
 services:
   - postgresql
 
@@ -33,6 +36,7 @@ before_script: # configure a headless display to test plot generation
   #- sleep 3 # give xvfb some time to start
   #- sudo sh install.sh
   #- apt-get install postgresql postgresql-contrib
+  - sudo apt-get install -y postgresql-server-dev-all 
   - git clone https://github.com/segasai/q3c.git
   - cd q3c/
   - make
