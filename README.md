@@ -1,9 +1,9 @@
-GOTO Observatory WSDB
-=====================
+GOTO WSDB
+=========
 
 [![Build Status](https://travis-ci.org/andycasey/goto-wsdb.svg?branch=master)](https://travis-ci.org/andycasey/goto-wsdb)
 
-A World Sky Database (WSDB) for the [GOTO Observatory](https://goto-observatory.org/).
+A World Sky Database (WSDB) for the [GOTO](https://goto-observatory.org/) project.
 
 
 Installation
@@ -36,6 +36,7 @@ The following Python code will run a cone search:
 from wsdb import WSDB
 
 wsdb = WSDB(user="goto", host="goto-observatory.org")
+
 
 results = wsdb.cone_search(45.212, -34.113, radius=1/3600.)
 ````

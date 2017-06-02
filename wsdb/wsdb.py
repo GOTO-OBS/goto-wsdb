@@ -1,6 +1,8 @@
 
 import numpy as np
+import os
 import psycopg2 as pg
+import yaml
 from astropy.table import Table
 from time import time
 
@@ -29,9 +31,30 @@ class WSDB(object):
         - *port*: connection port number (defaults to 5432 if not given)
         """
 
+        default_configuration_filename = os.path.expanduser("~/.wsdb.yaml")
+        if os.path.exists(default_configuration_filename):
+            with open(default_configuration_filename, "r") as fp:
+                default_configuration = yaml.load(fp)
+
+            for k, v in default_configuration.items():
+                kwargs.setdefault(k, v)
+
         self._default_return_as_table = True
         self._connection = pg.connect(**kwargs)
         return None
+
+
+    @property
+    def catalogues(self):
+        r"""
+        Return a list of the astronomical catalogues available.
+        """
+
+        _, catalogue_names, __ = self.execute("""
+            SELECT table_name
+            FROM information_schema.tables
+            WHERE table_schema = 'public'""", fetch=True)
+        return tuple(*catalogue_names)
 
 
     def cone_search(self, ra, dec, catalog, radius=1/3600.0, **kwargs):
@@ -71,7 +94,7 @@ class WSDB(object):
         select some results.
         """
         
-        names, rows, cursor = self._execute(query, values, fetch=True)
+        names, rows, cursor = self.execute(query, values, fetch=True)
         if len(rows) == 0:
             return None
 
@@ -94,7 +117,7 @@ class WSDB(object):
             return rows
 
 
-    def _execute(self, query, values=None, fetch=False, **kwargs):
+    def execute(self, query, values=None, fetch=False, **kwargs):
         r"""
         Execute a SQL query on  the database.
 
