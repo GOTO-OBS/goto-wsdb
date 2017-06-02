@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get -y install postgresql postgresql-server-dev-all
+sudo apt-get -y install gcc postgresql postgresql-server-dev-all
 git clone https://github.com/segasai/q3c.git
 cd q3c/
 make
