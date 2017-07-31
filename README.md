@@ -43,7 +43,7 @@ results = wsdb.cone_search(45.212, -34.113, radius=1/3600.)
 
 Maintainer
 ----------
-- Andy Casey (Monash)
+- [Andy Casey](http://astrowizici.st) (Monash)
 
 
 Acknowledgements
