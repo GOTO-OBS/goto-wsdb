@@ -35,10 +35,23 @@ The following Python code will run a cone search:
 ````python
 from wsdb import WSDB
 
-wsdb = WSDB(user="goto", host="goto-observatory.org")
+local_catalogue = Table.read("some-local-catalogue.csv")
 
+client = WSDB(user="goto", host="goto-observatory.org")
 
-results = wsdb.cone_search(45.212, -34.113, radius=1/3600.)
+print(client.catalogues)
+
+# Nearest-neighbour match with some local catalogue
+targets_nearest_neighbour = client.nearest_neighbour_query(
+    "apassdr9_main", local_catalogue["ra"], local_catalogue["dec"])
+
+# Polygon search
+targets_in_a_box = client.polygon_query("apassdr9_main", 
+    (127.3239975, 127.3239975,  134.117885,  134.117885),
+    (11.5666857, 23.5, 23.5, 11.5666857))`
+
+# Cone search
+targets_in_a_cone = wsdb.radial_query(45.212, -34.113, radius=1/3600.)
 ````
 
 Maintainer

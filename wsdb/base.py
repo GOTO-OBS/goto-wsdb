@@ -86,7 +86,7 @@ class BaseWSDB(object):
     def _check_catalogue(self, catalogue):
         r"""
         Check whether a catalogue is available in the WSDB.
-    
+
         :param catalogue_name:
             The source catalogue to query. Available catalogues are accessible
             through the ``WSDB.catalogues`` attribute.
@@ -108,10 +108,10 @@ class BaseWSDB(object):
         r"""
         A convenience function to perform SQL select queries on the WSDB.
 
-        Perform a SQL select query 
+        Perform a SQL select query
         select some results.
         """
-        
+
         names, rows, cursor = self.execute(query, values, fetch=True, **kwargs)
         if len(rows) == 0:
             return None
@@ -119,12 +119,12 @@ class BaseWSDB(object):
         if kwargs.get("as_table", self._default_return_as_table):
             counted_names = Counter(names)
             duplicates = [k for k, v in counted_names.items() if v > 1]
-        
+
             prefixes = kwargs.get("prefixes", True)
             use_prefixes = map(str, range(max(counted_names.values()))) \
                 if isinstance(prefixes, bool) else prefixes
 
-            # Put the prefixes and names in the right order & format 
+            # Put the prefixes and names in the right order & format
             prefixes = [
                 ([], [use_prefixes[names[:i].count(n)]])[n in duplicates] \
                 for i, n in enumerate(names)]
@@ -183,14 +183,14 @@ class BaseWSDB(object):
         names = None if cursor.description is None \
                      else tuple([col[0] for col in cursor.description])
 
-        if not cursor_supplied: 
+        if not cursor_supplied:
             cursor.close()
 
         return (names, results, cursor)
 
 
 
-        
+
 
     def _local_join(self, query, table_name, table, values=None, analyze=True,
         **kwargs):
@@ -217,7 +217,7 @@ class BaseWSDB(object):
 
         _, local_path = mkstemp()
 
-        table.write(local_path, format="ascii.no_header", delimiter=delimiter, 
+        table.write(local_path, format="ascii.no_header", delimiter=delimiter,
             overwrite=True)
 
         with self._connection.cursor() as cursor:
