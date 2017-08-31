@@ -33,6 +33,8 @@ local_catalogue = Table.read("some-local-catalogue.csv")
 client = WSDB(user="goto", host="goto-observatory.org")
 
 print(client.catalogues)
+>>> ('apassdr9_main', 'twomass_psc', 'gaiadr1_tgas_source', 'gaiadr1_gaia_source', 
+    'sdssdr9_phototag', 'goto_sources')
 
 # Nearest-neighbour match with some local catalogue
 targets_nearest_neighbour = client.nearest_neighbour_query(
