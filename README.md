@@ -21,14 +21,9 @@ Then install the ``wsdb`` module with the following command:
 python setup.py install
 ````
 
-Ingest data
------------
 
-# todo give apass example
-
-
-Usage examples: Python
-----------------------
+Python usage example
+--------------------
 
 The following Python code will run a cone search:
 
