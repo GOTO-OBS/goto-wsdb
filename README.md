@@ -27,6 +27,7 @@ Python usage example
 
 ````python
 from wsdb import WSDB
+from astropy.table import Table
 
 local_catalogue = Table.read("some-local-catalogue.csv")
 
