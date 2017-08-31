@@ -34,8 +34,8 @@ local_catalogue = Table.read("some-local-catalogue.csv")
 client = WSDB(user="goto", host="goto-observatory.org")
 
 print(client.catalogues)
->>> ('apassdr9_main', 'twomass_psc', 'gaiadr1_tgas_source', 'gaiadr1_gaia_source', 
-    'sdssdr9_phototag', 'goto_sources')
+>>> ('apassdr9_main', 'twomass_psc', 'gaiadr1_tgas_source',
+     'gaiadr1_gaia_source', 'sdssdr9_phototag', 'goto_sources')
 
 # Nearest-neighbour match with some local catalogue
 targets_nearest_neighbour = client.nearest_neighbour_query(
@@ -44,7 +44,7 @@ targets_nearest_neighbour = client.nearest_neighbour_query(
 # Polygon search
 targets_in_a_box = client.polygon_query("apassdr9_main", 
     (127.3239975, 127.3239975,  134.117885,  134.117885),
-    (11.5666857, 23.5, 23.5, 11.5666857))`
+    (11.5666857, 23.5, 23.5, 11.5666857))
 
 # Cone search
 targets_in_a_cone = wsdb.radial_query(45.212, -34.113, radius=1/3600.)
