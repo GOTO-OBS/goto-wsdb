@@ -23,9 +23,7 @@ python setup.py install
 
 
 Python usage example
---------------------
-
-The following Python code will run a cone search:
+---------------------
 
 ````python
 from wsdb import WSDB
