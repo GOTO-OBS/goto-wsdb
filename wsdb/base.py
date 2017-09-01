@@ -10,6 +10,7 @@ from collections import Counter
 from tempfile import mkstemp
 
 logger = logging.getLogger(__name__)
+"""
 logger.setLevel(logging.DEBUG)
 
 ch = logging.StreamHandler()
@@ -18,7 +19,7 @@ ch.setFormatter(
     logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
 
 logger.addHandler(ch)
-
+"""
 
 __all__ = ["BaseWSDB"]
 
@@ -121,7 +122,7 @@ class BaseWSDB(object):
             duplicates = [k for k, v in counted_names.items() if v > 1]
 
             prefixes = kwargs.get("prefixes", True)
-            use_prefixes = map(str, range(max(counted_names.values()))) \
+            use_prefixes = list(map(str, range(max(counted_names.values())))) \
                 if isinstance(prefixes, bool) else prefixes
 
             # Put the prefixes and names in the right order & format
