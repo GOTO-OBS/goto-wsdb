@@ -6,7 +6,7 @@ from wsdb import WSDB
 class TestWSDBClient(unittest.TestCase):
 
     def setUp(self):
-        self.client = WSDB()
+        self.client = WSDB(dbname='wsdb')
 
     def tearDown(self):
         self.client.close()
@@ -32,6 +32,3 @@ class TestWSDBCatalogues(TestWSDBClient):
 
         for catalogue_name in catalogue_names:
             self.assertIsInstance(catalogue_name, (str, unicode))
-
-
-        

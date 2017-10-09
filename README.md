@@ -42,12 +42,13 @@ targets_nearest_neighbour = client.nearest_neighbour_query(
     "apassdr9_main", local_catalogue["ra"], local_catalogue["dec"])
 
 # Polygon search
-targets_in_a_box = client.polygon_query("apassdr9_main", 
+targets_in_a_box = client.polygon_query("apassdr9_main",
     (127.3239975, 127.3239975,  134.117885,  134.117885),
     (11.5666857, 23.5, 23.5, 11.5666857))
 
 # Cone search
-targets_in_a_cone = wsdb.radial_query(45.212, -34.113, radius=1/3600.)
+targets_in_a_cone = wsdb.radial_query("apassdr9_main",
+    45.212, -34.113, radius=0.1)
 ````
 
 Maintainer
