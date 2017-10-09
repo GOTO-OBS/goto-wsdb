@@ -1,0 +1,80 @@
+Dear Dr. Casey,
+
+Thank you for your interest in the AAVSO Photometric All-Sky Survey 
+(APASS) data. You are welcome to download the entire DR9 catalog to use. 
+DR10 will not be available until early 2018 at the earliest.
+
+APASS Data Release 9 is an incremental release that only modifies 
+observations made from the southern site (declination +20 to -90).  This 
+means that only file apass_dr9b.zip is new; apass_dr9a.zip contains the 
+DR8 release files from the northern site (+20 to +90 declination).  If 
+you have used APASS DR8 before, you only need to work with the dr9b 
+archive file.
+
+The data are also available via our Amazon cloud server, at
+
+https://www.aavso.org/sites/default/files/apass/apass_dr9a.zip  (0.6 GB)
+
+https://www.aavso.org/sites/default/files/apass/apass_dr9b.zip  (1.8 GB)
+
+
+There are some known problems with this data set which you can read 
+about here: http://www.aavso.org/apass/#DR9_problems
+
+The files "apass_dr9a.zip" and "apass_dr9b.zip" contain the full data 
+set split into zones where "m" are negative Dec, and "p" are positive 
+Dec.  The zip files are large, and may take some time to download.  If 
+you have any difficulties accessing them, please let me know.
+
+Each file contains a header, followed by one record per star.  The star 
+record format is:
+
+A10  field name
+F11.6  RA (decimal degrees)
+F7.3   RA error (arcsec)
+F11.6  DEC (decimal degrees)
+F7.3   DEC error (arcsec)
+I5     nobs (number of observed nights)
+I5     mobs (number of images for this field, usually nobs*5)
+F7.3   V
+F7.3   (B-V)
+F7.3   B
+F7.3   g'
+F7.3   r'
+F7.3   i'
+F7.3   Verr
+F7.3   (B-V)err
+F7.3   Berr
+F7.3   g'err
+F7.3   r'err
+F7.3   i'err
+
+When submitting a journal publication based on APASS data, please check 
+with Arne Henden (arne@aavso.org) to see if the first APASS system paper 
+has been published and therefore is citable.  If you are submitting to 
+AJ/ApJ etc., please include the facilities keyword "AAVSO".  For all 
+publications, include the following acknowledgment:
+
+"This paper makes use of data from the AAVSO Photometric All Sky Survey, 
+whose funding has been provided by the Robert Martin Ayers Sciences Fund
+and by the NSF under grant AST-1412587."
+
+If use of the APASS data is a major part of your publication, such as in 
+the generation of an input catalog for some study, then we strongly 
+suggest that you include one of the primary APASS researchers as a 
+co-author.  Not only has the survey been mostly privately funded, but
+also there are several defects in the interim catalog that an APASS 
+researcher can help you in understanding and thereby improve your 
+paper.  Again, contact Arne Henden first.
+
+We request that all parties downloading the full catalog get permission 
+from the AAVSO, so please do not post the catalog URLs or give them to 
+anyone else.
+
+Thanks again for your interest in APASS. We hope it serves you well.
+
+Best regards,
+
+Bert Pablo
+Staff Astronomer
+AAVSO
