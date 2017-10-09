@@ -12,6 +12,11 @@ for filename in filenames:
         
     fixed_lines = []
     N = len(contents)
+    if 'RA' in contents[0]:
+        contents = contents[1:]
+    else: # Assume header at the last line of file
+        contents = contents[:-1]
+
     for i, line in enumerate(contents[1:]):
         print(filename, i, N)
         total = 0
