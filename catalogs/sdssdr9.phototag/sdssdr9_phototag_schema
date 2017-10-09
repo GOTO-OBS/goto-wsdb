@@ -1,17 +1,17 @@
 DROP TABLE IF EXISTS sdssdr9_phototag;
 CREATE TABLE sdssdr9_phototag (
     objID bigint,
-    skyVersion tinyint,
+    skyVersion smallint,
     run smallint,
     rerun smallint,
-    camcol tinyint
+    camcol smallint,
     field smallint,
     obj smallint,
-    mode tinyint,
+    mode smallint,
     nChild smallint,
     type smallint,
     probPSF real,
-    insideMask tinyint,
+    insideMask smallint,
     flags bigint,
     flags_u bigint,
     flags_g bigint,
