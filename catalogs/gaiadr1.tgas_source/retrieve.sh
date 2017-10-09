@@ -1,0 +1,17 @@
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-000.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-001.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-002.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-003.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-004.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-005.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-006.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-007.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-008.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-009.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-010.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-011.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-012.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-013.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-014.csv.gz 
+wget -nc http://cdn.gea.esac.esa.int/Gaia/tgas_source/csv/TgasSource_000-000-015.csv.gz
+gunzip -v *.gz 
