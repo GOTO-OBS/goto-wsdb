@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get -y install gcc postgresql postgresql-server-dev-all
+sudo apt-get -y install gcc postgresql postgresql-server-dev-all postgresql-contrib
 git clone https://github.com/segasai/q3c.git
 cd q3c/
 make
@@ -22,3 +22,4 @@ psql -U postgres -c "CREATE DATABASE wsdb"
 psql -U postgres -c "ALTER USER goto WITH PASSWORD '$GOTO_PASSWORD'"
 psql -U postgres -c "ALTER DATABASE wsdb OWNER TO goto"
 psql -U postgres -d wsdb -c "CREATE EXTENSION q3c"
+psql -U postgres -d wsdb -c "CREATE EXTENSION dblink"
