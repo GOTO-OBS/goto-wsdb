@@ -40,7 +40,7 @@ setup(
     ],
     keywords="GOTO WSDB",
     packages=["wsdb"],
-    install_requires=["psycopg2", "astropy", "numpy"],
+    install_requires=["psycopg2", "astropy", "numpy", "PyYAML"],
     extras_require={
         "test": ["coverage"]
     },
