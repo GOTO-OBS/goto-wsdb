@@ -5,7 +5,7 @@ CREATE TABLE gaiadr1_gaia_source (
     random_index bigint,            
     ref_epoch double precision,
     ra double precision,
-    ra_errordouble precision,
+    ra_error double precision,
     dec double precision,
     dec_error double precision,
     parallax double precision,
