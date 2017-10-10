@@ -17,7 +17,7 @@ for filename in filenames:
     else: # Assume header at the last line of file
         contents = contents[:-1]
 
-    for i, line in enumerate(contents[1:]):
+    for i, line in enumerate(contents):
         print(filename, i, N)
         total = 0
         fixed_line = []
