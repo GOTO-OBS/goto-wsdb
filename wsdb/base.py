@@ -98,7 +98,8 @@ class BaseWSDB(object):
         :raises ValueError:
             If the catalogue is not available.
         """
-
+        return True
+        
         if catalogue not in self.catalogues:
             raise ValueError("catalogue '{}' unavailable (available: {})".format(
                 catalogue, ", ".join(self.catalogues)))
