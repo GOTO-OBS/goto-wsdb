@@ -15,7 +15,8 @@ from astropy.table import Table
 
 local_catalogue = Table.read("some-local-catalogue.csv")
 
-client = WSDB(user="goto", host="goto-observatory.org")
+client = WSDB(database="wsdb", host="goto-observatory.org",
+              user="goto", password="ask_andy_on_slack")
 
 print(client.catalogues)
 >>> ('apassdr9_main', 'twomass_psc', 'gaiadr1_tgas_source',
